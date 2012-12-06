@@ -1,0 +1,1 @@
+Main-Class: com.transportation.siri_il.SOAPPort_SiriWSPort_Client
