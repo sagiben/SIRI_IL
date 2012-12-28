@@ -8,6 +8,9 @@ import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 
 /**
  * Type for Identifer of a MonitoredVehicleJourney within data Horizon of a service
@@ -90,6 +93,10 @@ public class FramedVehicleJourneyRefStructure {
      */
     public void setDatedVehicleJourneyRef(String value) {
         this.datedVehicleJourneyRef = value;
+    }
+
+    public String toString() {
+    	return ReflectionToStringBuilder.toString(this, ToStringStyle.MULTI_LINE_STYLE);
     }
 
 }

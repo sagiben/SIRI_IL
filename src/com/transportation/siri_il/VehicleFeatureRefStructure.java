@@ -61,4 +61,7 @@ public class VehicleFeatureRefStructure {
         this.value = value;
     }
 
+    public String toString() {
+    	return value;
+    }
 }

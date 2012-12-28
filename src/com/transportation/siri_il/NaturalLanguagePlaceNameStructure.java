@@ -9,6 +9,8 @@ import javax.xml.bind.annotation.XmlValue;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+
 
 /**
  * @lang. ISO language code (default is en)
@@ -90,4 +92,7 @@ public class NaturalLanguagePlaceNameStructure {
         this.lang = value;
     }
 
+    public String toString() {
+    	return ReflectionToStringBuilder.toString(this);
+    }
 }

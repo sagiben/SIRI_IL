@@ -51,4 +51,8 @@ public enum DepartureBoardingActivityEnumeration {
         throw new IllegalArgumentException(v);
     }
 
+    @Override
+    public String toString() {
+    	return value;
+    }
 }

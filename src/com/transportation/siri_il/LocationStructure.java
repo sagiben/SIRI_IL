@@ -12,6 +12,8 @@ import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+
 
 /**
  * Type for gepspatial Position of a point. May be expressed in concrete WGS 84 Coordinates  or any gml compatible point coordinates  format.         
@@ -211,4 +213,7 @@ public class LocationStructure {
         this.srsName = value;
     }
 
+    public String toString() {
+    	return ReflectionToStringBuilder.toString(this);
+    }
 }

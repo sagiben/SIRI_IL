@@ -63,4 +63,7 @@ public class JourneyPlaceRefStructure {
         this.value = value;
     }
 
+    public String toString() {
+    	return value;
+    }
 }

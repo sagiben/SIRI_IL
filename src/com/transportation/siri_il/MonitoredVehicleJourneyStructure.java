@@ -13,6 +13,9 @@ import javax.xml.bind.annotation.XmlType;
 import javax.xml.datatype.Duration;
 import javax.xml.datatype.XMLGregorianCalendar;
 
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 
 /**
  * Type for Monitored Vehicle Journey.
@@ -1422,4 +1425,8 @@ public class MonitoredVehicleJourneyStructure {
         this.isCompleteStopSequence = value;
     }
 
+    @Override
+    public String toString() {
+    	return ReflectionToStringBuilder.toString(this, ToStringStyle.MULTI_LINE_STYLE);
+    }
 }

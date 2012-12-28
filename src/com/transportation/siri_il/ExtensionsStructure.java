@@ -5,6 +5,8 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAnyElement;
 import javax.xml.bind.annotation.XmlType;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 import org.w3c.dom.Element;
 
 
@@ -62,6 +64,11 @@ public class ExtensionsStructure {
      */
     public void setAny(Object value) {
         this.any = value;
+    }
+    
+    @Override
+    public String toString() {
+    	return ReflectionToStringBuilder.toString(this, ToStringStyle.MULTI_LINE_STYLE);
     }
 
 }

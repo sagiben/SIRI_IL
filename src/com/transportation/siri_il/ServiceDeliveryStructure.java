@@ -10,6 +10,9 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
 
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 
 /**
  * Type for SIRI Service Delivery type.  
@@ -503,6 +506,10 @@ public class ServiceDeliveryStructure
         this.srsName = value;
     }
 
+    @Override
+    public String toString() {
+    	return ReflectionToStringBuilder.toString(this, ToStringStyle.MULTI_LINE_STYLE);
+    }
 
     /**
      * <p>Java class for anonymous complex type.
@@ -613,7 +620,11 @@ public class ServiceDeliveryStructure
         public void setDescription(ErrorDescriptionStructure value) {
             this.description = value;
         }
-
+        
+        @Override
+        public String toString() {
+        	return this.description.value;
+        }
     }
 
 }

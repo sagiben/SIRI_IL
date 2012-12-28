@@ -10,7 +10,6 @@ import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.GregorianCalendar;
-import java.util.List;
 
 import javax.xml.namespace.QName;
 
@@ -50,30 +49,34 @@ public final class SOAPPort_SiriWSPort_Client {
         System.out.println("Invoking getStopMonitoringService...");
         ServiceRequestStructure request = new ServiceRequestStructure();
         
-        request.requestorRef = new ParticipantRefStructure();
-        request.requestorRef.value = "HM391083";
-        request.requestTimestamp = new XMLGregorianCalendarImpl(new GregorianCalendar());
+        ParticipantRefStructure requestorRef = new ParticipantRefStructure();
+        requestorRef.setValue("HM391083");
+        request.setRequestorRef(requestorRef);
+        request.setRequestTimestamp(new XMLGregorianCalendarImpl(new GregorianCalendar()));
+        MessageQualifierStructure messageId = new MessageQualifierStructure();
+        messageId.setValue(new XMLGregorianCalendarImpl(new GregorianCalendar()).toString());
+        request.setMessageIdentifier(messageId);
         
         StopMonitoringRequestStructure newRequest = new StopMonitoringRequestStructure();
+        newRequest.setVersion("IL2.6");
         newRequest.setRequestTimestamp(new XMLGregorianCalendarImpl(new GregorianCalendar()));
+        newRequest.setMessageIdentifier(messageId);
+        MonitoringRefStructure monitoringRef =  new MonitoringRefStructure();
+        monitoringRef.setValue(args[3]);
+        newRequest.setMonitoringRef(monitoringRef);      
         OperatorRefStructure operatorRef = new OperatorRefStructure();
-        operatorRef.value = args[1];
+        operatorRef.setValue(args[1]);
 		newRequest.setOperatorRef(operatorRef);
         LineRefStructure lineRef = new LineRefStructure();
-        lineRef.value = args[2];
+        lineRef.setValue(args[2]);
         newRequest.setLineRef(lineRef);
-        MonitoringRefStructure monitoringRef =  new MonitoringRefStructure();
-        monitoringRef.value = args[3];
-        newRequest.setMonitoringRef(monitoringRef);
         request.getStopMonitoringRequest().add(newRequest);      
-        
+        System.out.println("REQUEST\n-------\n" + request);
         
         ServiceDeliveryStructure response = port.getStopMonitoringService(request);   
-        if (response.getErrorCondition().description != null )
-        	System.out.println("getStopMonitoringService errorCondition = " + response.getErrorCondition().description.getValue());
-        else
-        	System.out.println("getStopMonitoringService result = " + response.getStopMonitoringDelivery().size());
-         System.exit(0);
+        System.out.println("\nRESPONSE\n-------\n" + response);
+        
+        System.exit(0);
     }
 
 }

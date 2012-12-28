@@ -1,1 +1,2 @@
 Main-Class: com.transportation.siri_il.SOAPPort_SiriWSPort_Client
+Class-Path: libs/commons-lang3-3.1.jar

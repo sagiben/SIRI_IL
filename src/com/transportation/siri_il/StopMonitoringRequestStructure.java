@@ -13,6 +13,9 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import javax.xml.datatype.Duration;
 import javax.xml.datatype.XMLGregorianCalendar;
 
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 
 /**
  * Service Request Type for Stop Monitoring Service.
@@ -482,6 +485,11 @@ public class StopMonitoringRequestStructure
      */
     public void setVersion(String value) {
         this.version = value;
+    }
+    
+    @Override
+    public String toString() {
+    	return ReflectionToStringBuilder.toString(this, ToStringStyle.MULTI_LINE_STYLE);
     }
 
 }

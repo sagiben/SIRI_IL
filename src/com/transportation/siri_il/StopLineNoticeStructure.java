@@ -8,6 +8,9 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 
 /**
  * Data type for Visit of a vehicle to a stop. May provide information about the arrival, the departure or both.
@@ -212,6 +215,11 @@ public class StopLineNoticeStructure
      */
     public void setExtensions(ExtensionsStructure value) {
         this.extensions = value;
+    }
+    
+    @Override
+    public String toString() {
+    	return ReflectionToStringBuilder.toString(this, ToStringStyle.MULTI_LINE_STYLE);
     }
 
 }

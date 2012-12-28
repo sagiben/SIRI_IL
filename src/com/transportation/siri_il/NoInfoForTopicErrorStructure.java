@@ -5,6 +5,8 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+
 
 /**
  * Type for Error: No Info.
@@ -30,5 +32,7 @@ public class NoInfoForTopicErrorStructure
     extends ErrorCodeStructure
 {
 
-
+    public String toString() {
+    	return ReflectionToStringBuilder.toString(this);
+    }
 }

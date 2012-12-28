@@ -6,6 +6,9 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 
 /**
  * Type for change to equipment availability. Basic structure defined in the first 1.0 SIRI XSD
@@ -115,6 +118,10 @@ public class FacilityChangeStructure {
      */
     public void setMobilityDisruption(MobilityDisruptionStructure value) {
         this.mobilityDisruption = value;
+    }
+    
+    public String toString() {
+    	return ReflectionToStringBuilder.toString(this, ToStringStyle.MULTI_LINE_STYLE);
     }
 
 }

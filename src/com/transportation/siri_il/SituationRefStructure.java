@@ -6,6 +6,8 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+
 
 /**
  * Data Type for Reference to a Situation. Includes the Particpant , identifier and and version components of the identifier.
@@ -89,4 +91,7 @@ public class SituationRefStructure {
         this.situationFullRef = value;
     }
 
+    public String toString() {
+    	return ReflectionToStringBuilder.toString(this);
+    }
 }

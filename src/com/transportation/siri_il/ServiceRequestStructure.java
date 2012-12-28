@@ -9,6 +9,9 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
 
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 
 /**
  * SIRI Service Request.
@@ -390,6 +393,11 @@ public class ServiceRequestStructure
             situationExchangeRequest = new ArrayList<SituationExchangeRequestStructure>();
         }
         return this.situationExchangeRequest;
+    }
+    
+    @Override
+    public String toString() {
+    	return ReflectionToStringBuilder.toString(this, ToStringStyle.MULTI_LINE_STYLE);
     }
 
 }

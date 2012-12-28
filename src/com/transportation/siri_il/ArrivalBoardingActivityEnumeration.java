@@ -50,5 +50,10 @@ public enum ArrivalBoardingActivityEnumeration {
         }
         throw new IllegalArgumentException(v);
     }
+    
+    @Override
+    public String toString() {
+    	return value;
+    }
 
 }
